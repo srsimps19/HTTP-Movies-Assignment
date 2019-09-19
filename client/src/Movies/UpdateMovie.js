@@ -29,11 +29,7 @@ class UpdateMovie extends React.Component {
         .put(`http://localhost:5000/api/movies/${id}`, updatedMovie)
         .then(res => {
             console.log(res.data)
-            this.setState({
-                movie: {
-                    ...this.state.movie    
-                }
-            })
+            this.props.history.push('/movies')
         })
     }
 
