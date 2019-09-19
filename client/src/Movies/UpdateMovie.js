@@ -2,14 +2,24 @@ import React from "react";
 import axios from "axios";
 
 class UpdateMovie extends React.Component {
-    state = {
+    constructor(props){
+        super(props) 
+        this.state = {
         movie: {
             id:"",
             title: "",
             director: "",
             metascore: "",
         }
+        
     }
+}
+
+    // componentDidUpdate(props){
+    //  const id = props.match.params.id;
+    //  const movieToUpdate = props.movies.find(movie => `${movie.id}` === id)
+    //  this.setState(movieToUpdate);
+    // }
 
     handleChanges = e => {
         let name = e.target.name
@@ -51,7 +61,7 @@ class UpdateMovie extends React.Component {
                         onChange={this.handleChanges}
                     />
                     <input
-                        type="text"
+                        type="number"
                         name="metascore"
                         placeholder="Metascore"
                         value={this.state.movie.metascore}
