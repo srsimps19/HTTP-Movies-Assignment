@@ -13,7 +13,7 @@ export default class Movie extends React.Component {
     this.fetchMovie(this.props.match.params.id);
   }
 
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     if (this.props.match.params.id !== newProps.match.params.id) {
       this.fetchMovie(newProps.match.params.id);
     }
@@ -35,7 +35,8 @@ export default class Movie extends React.Component {
     this.props.history.push(`/update-movie/${id}`)
   }
 
-  deleteMovie = id => {
+  deleteMovie = (e,id) => {
+    e.preventDefault()
     axios
       .delete(`http://localhost:5000/api/movies/${id}`)
       .then(() => {
