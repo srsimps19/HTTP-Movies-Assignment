@@ -31,14 +31,15 @@ export default class Movie extends React.Component {
     addToSavedList(this.state.movie);
   };
 
-  updateMovie = (id) => {
-    this.props.history.push(`/update-movie/${id}`)
+  updateMovie = (props) => {
+    console.log(props)
+    this.props.history.push(`/update-movie/${this.state.movie.id}`)
   }
 
   deleteMovie = (e,id) => {
     e.preventDefault()
     axios
-      .delete(`http://localhost:5000/api/movies/${id}`)
+      .delete(`http://localhost:5000/api/movies/${this.state.movie.id}`)
       .then(() => {
         this.props.history.push("/")
       })

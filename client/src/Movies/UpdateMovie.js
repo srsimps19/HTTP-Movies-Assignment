@@ -8,7 +8,6 @@ class UpdateMovie extends React.Component {
             title: "",
             director: "",
             metascore: "",
-            stars: "",
         }
     }
 
@@ -58,13 +57,13 @@ class UpdateMovie extends React.Component {
                         value={this.state.movie.metascore}
                         onChange={this.handleChanges}
                     />
-                    <input
+                    {/* <input
                         type="text"
                         name="stars"
                         placeholder="Stars"
                         value={this.state.movie.stars}
                         onChange={this.handleChanges}
-                    />
+                    /> */}
                     <button>Save Changes!</button>
                 </form>
             </div>
